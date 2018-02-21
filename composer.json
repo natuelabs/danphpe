@@ -5,12 +5,16 @@
     "license": "MIT",
     "require": {
         "iio/libmergepdf": "^3.1",
-        "aws/aws-sdk-php": "^3.52"
+        "aws/aws-sdk-php": "~2.6"
     },
     "authors": [
         {
             "name": "Edson Lima",
             "email": "dddwebdeveloper@gmail.com"
+        },
+        {
+            "name": "Diogo Tozzi",
+            "email": "tozzi.diogo@gmail.com"
         }
     ],
     "autoload": {
