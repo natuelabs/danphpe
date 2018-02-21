@@ -12,7 +12,7 @@ class S3 implements \Natuelabs\Danphpe\Reader
   private $env;
   private $bucket;
 
-  public function __construct($region, $env = null, $credentials = null, $bucket)
+  public function __construct($region, $env, $credentials, $bucket)
   {
     $this->env = $env;
     $this->bucket = $bucket;

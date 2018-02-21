@@ -35,6 +35,6 @@ class S3Test extends \PHPUnit_Framework_TestCase
     return new S3(getenv('S3_REGION'), 'development_test', [
       'key' => getenv('S3_ACCESS_KEY'),
       'secret' => getenv('S3_SECRET_KEY')
-    ]);
+    ], 'natuelabs.taxman');
   }
 }
