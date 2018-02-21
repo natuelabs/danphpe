@@ -6,7 +6,6 @@ use Aws\S3\S3Client;
 
 class S3 implements \Natuelabs\Danphpe\Reader
 {
-  const BUCKET = 'natuelabs.taxman';
   const S3_CLIENT_VERSION = '2006-03-01';
 
   private $S3Client;
