@@ -2,6 +2,7 @@
     "name": "natuelabs/danphpe",
     "description": "A simple library to manage DANFES stored in S3",
     "type": "library",
+    "license": "MIT",
     "require": {
         "iio/libmergepdf": "^3.1",
         "aws/aws-sdk-php": "^3.52"
