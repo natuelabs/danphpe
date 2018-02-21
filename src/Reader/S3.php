@@ -41,7 +41,7 @@ class S3 implements \Natuelabs\Danphpe\Reader
   public function getContents($file)
   {
     try {
-      return $this->get($file)->get('Body')->getContents();
+      return $this->get($file)->get('Body');
     } catch (\Aws\S3\Exception\S3Exception $exception) {
       throw new Exceptions\DanfeNotFoundException(
         sprintf('Danfe %s not found on S3::%s', $file, $this->env),
