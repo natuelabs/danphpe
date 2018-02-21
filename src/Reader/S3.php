@@ -11,10 +11,12 @@ class S3 implements \Natuelabs\Danphpe\Reader
 
   private $S3Client;
   private $env;
+  private $bucket;
 
-  public function __construct($region, $env = null, $credentials = null)
+  public function __construct($region, $env = null, $credentials = null, $bucket)
   {
     $this->env = $env;
+    $this->bucket = $bucket;
     $this->client = $this->createS3Client($region, $credentials);
   }
 
@@ -32,7 +34,7 @@ class S3 implements \Natuelabs\Danphpe\Reader
     $path = sprintf('%s/danfe/%s', $this->env, $file);
 
     return $this->client->getObject([
-      'Bucket' => self::BUCKET,
+      'Bucket' => $this->bucket,
       'Key' => $path
     ]);
   }

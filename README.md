@@ -9,19 +9,24 @@ Actually this package only read danfes on S3 and save on FileSystem.
 
 require 'vendor/autoload.php';
 
-$reader = new Natuelabs\Danphpe\Reader\S3(getenv('S3_REGION'), 'development', [
-  'key' => getenv('S3_ACCESS_KEY'),
-  'secret' => getenv('S3_SECRET_KEY'),
-]);
+$region = 'us-east-1';
+$environment = 'development';
+$credentials = [
+  'key' => '',
+  'secret' => '',
+];
+$bucket = 'your.bucket';
+
+$reader = new Natuelabs\Danphpe\Reader\S3($region, $environment, $credentials, $bucket);
 
 $storage = new Natuelabs\Danphpe\Storage\FileSystem('/tmp');
 
 $storage->save(
   'merged.pdf',
   Natuelabs\Danphpe\PDF\merge([
-    Natuelabs\Danphpe\PDF\merge\raw($reader->getContents('32180217018091000276550020000375281000000020.pdf')),
-    Natuelabs\Danphpe\PDF\merge\raw($reader->getContents('32180217018091000276550020000375291000000036.pdf')),
-    Natuelabs\Danphpe\PDF\merge\raw($reader->getContents('32180217018091000276550020000375301000000045.pdf'))
+    Natuelabs\Danphpe\PDF\merge\raw($reader->getContents('3218021701809100027655020000375281000000020.pdf')),
+    Natuelabs\Danphpe\PDF\merge\raw($reader->getContents('3218021701809100027655020000375291000000036.pdf')),
+    Natuelabs\Danphpe\PDF\merge\raw($reader->getContents('3218021701809100027655020000375301000000045.pdf'))
   ])
 );
 
@@ -30,5 +35,5 @@ $storage->save(
 ### How run the tests
 
 ```sh
-S3_REGION=$REGION S3_ACCESS_KEY=$ACCESS S3_SECRET_KEY=$SECRET vendor/bin/phpunit
+vendor/bin/phpunit
 ```
